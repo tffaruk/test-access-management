@@ -16,8 +16,7 @@ import { useAppContext } from "context/state";
 import { getSession, signIn } from "next-auth/react";
 import React, { useEffect, useState } from "react";
 
-const Tools = ({ session }) => {
-  console.log(session);
+const Tools = () => {
   const {
     toolState: { tools, loading, error },
     toolDispatch,
@@ -82,20 +81,20 @@ const Tools = ({ session }) => {
     </FullLayout>
   );
 };
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
+// export async function getServerSideProps(context) {
+//   const session = await getSession(context);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/auth/signIn",
-        permanent: false,
-      },
-    };
-  }
+//   if (!session) {
+//     return {
+//       redirect: {
+//         destination: "/auth/signIn",
+//         permanent: false,
+//       },
+//     };
+//   }
 
-  return {
-    props: { session },
-  };
-}
+//   return {
+//     props: { session },
+//   };
+// }
 export default Tools;
