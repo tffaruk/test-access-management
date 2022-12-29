@@ -1,5 +1,6 @@
 // import { Axios } from "@lib/axios";
 import Axios from "@/lib/axios";
+import axios from "axios";
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -48,7 +49,6 @@ export const authOptions = {
       const AllUser = await Axios.get("user");
       const Admin = await Axios.get("admin");
       const { admin } = Admin.data;
-      console.log(admin);
 
       const { users } = AllUser.data;
       if (
